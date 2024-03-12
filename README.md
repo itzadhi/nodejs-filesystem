@@ -1,6 +1,6 @@
 # Node File System
 
-I have created two API's by using node js to interact with file system module.
+I have created Two API by using node js to interact with file system module, where you can create a file and read all files in the directory.
 
 ## Local Setup
 
