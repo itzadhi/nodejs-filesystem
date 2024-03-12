@@ -46,11 +46,7 @@ function getDateTime() {
 //Default route and other route details
 app.get('/', (req, res) => {
   res.send(
-    'Hello Server is running' +
-      '\n' +
-      '/create => To create a filename and content using date and time.' +
-      '\n' +
-      '/read => To read all the filenames in the directory.'
+    '<p>The routes are available to use.</p><p>/create => To create a filename and content using date and time.<p>/read => To read all the filenames in the directory.</p>'
   );
 });
 
