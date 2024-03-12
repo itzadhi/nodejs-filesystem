@@ -18,8 +18,6 @@ function getDateTime() {
   ];
 }
 
-const EXTENSION = '.txt';
-
 // const folderName = './random';
 
 //To create directory by using mkdir, before that we can check if dir name is present or not
@@ -45,8 +43,15 @@ const EXTENSION = '.txt';
 //   }
 // });
 
+//Default route and other route details
 app.get('/', (req, res) => {
-  res.send('Hello Server is running');
+  res.send(
+    'Hello Server is running' +
+      '\n' +
+      '/create => To create a filename and content using date and time.' +
+      '\n' +
+      '/read => To read all the filenames in the directory.'
+  );
 });
 
 //To create a filename and content using date and time
@@ -67,13 +72,15 @@ app.get('/create', (req, res) => {
 
 //To read all the filenames in the particular directory
 app.get('/read', (req, res) => {
+  const Extension = '.txt';
   fs.readdir('./random', (err, files) => {
     if (err) {
       console.log('Error in reading files', err);
       res.send('Error while reading files, check your logs');
     } else {
+      //By using path module and extname method, we can filter which extension we want
       const targetFiles = files.filter(
-        (file) => path.extname(file).toLowerCase() === EXTENSION
+        (file) => path.extname(file).toLowerCase() === Extension
       );
       res.send(`The text file names are ${targetFiles?.toString()}.`);
     }
